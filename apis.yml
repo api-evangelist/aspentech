@@ -1,0 +1,18 @@
+aid: aspentech
+url: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/apis.yml
+apis:
+- aid: aspentech:aspentech-api
+  name: AspenTech Aspen One API
+  tags:
+  - Process Optimization
+  - Simulation
+  - Energy
+  - Manufacturing
+  image: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/image.png
+  humanURL: https://www.aspentech.com/
+  baseURL: https://api.aspentech.example.com
+  properties:
+  - url: https://www.aspentech.com/
+    type: Documentation
+  description: >-
+    AspenTech provides process optimization and simulation software for energy, chemicals, and manufacturing industries. The Aspen One platform APIs enable access to process simulation models, performance monitoring, and optimization data for AI-driven operational workflows.
