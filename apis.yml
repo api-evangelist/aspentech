@@ -20,6 +20,8 @@ apis:
     type: Reference
   - url: https://atdocs.inmation.com/home/index.html
     type: Documentation
+  - url: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/openapi/aspentech-inmation-web-openapi.yml
+    type: OpenAPI
   description: >-
     The AspenTech Inmation Web API provides HTTP and WebSocket interfaces for external applications to interact with AspenTech Inmation industrial IoT and time-series data platforms. RPC-based REST APIs enable access to process data, system services, and automation functions for manufacturing and energy operations.
 
@@ -71,6 +73,12 @@ common:
     type: GettingStarted
   - url: https://esupport.aspentech.com/
     type: Support
+  - url: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/openapi/aspentech-inmation-web-openapi.yml
+    type: OpenAPI
+  - url: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/json-schema/aspentech-dataitem-schema.json
+    type: JSONSchema
+  - url: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/json-ld/aspentech-context.jsonld
+    type: JSONLDContext
 
 maintainers:
 - name: Kin Lane

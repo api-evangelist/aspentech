@@ -1,0 +1,50 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aspentech": "https://atdocs.inmation.com/api/",
+    "schema": "https://schema.org/",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "time": "http://www.w3.org/2006/time#",
+
+    "DataItem": {
+      "@id": "sosa:Observation",
+      "@context": {
+        "path": {"@id": "aspentech:itemPath", "@type": "xsd:string"},
+        "value": {"@id": "sosa:hasSimpleResult"},
+        "quality": {"@id": "aspentech:opcQuality", "@type": "xsd:integer"},
+        "timestamp": {"@id": "sosa:resultTime", "@type": "xsd:dateTime"},
+        "engineeringUnit": {"@id": "qudt:unit"},
+        "itemType": {"@id": "aspentech:itemType"},
+        "name": {"@id": "schema:name"},
+        "description": {"@id": "schema:description"},
+        "highLimit": {"@id": "aspentech:highLimit", "@type": "xsd:double"},
+        "lowLimit": {"@id": "aspentech:lowLimit", "@type": "xsd:double"},
+        "alarmHigh": {"@id": "aspentech:alarmHigh", "@type": "xsd:double"},
+        "alarmLow": {"@id": "aspentech:alarmLow", "@type": "xsd:double"}
+      }
+    },
+
+    "Sensor": {
+      "@id": "sosa:Sensor",
+      "@context": {
+        "path": {"@id": "aspentech:itemPath"},
+        "name": {"@id": "schema:name"},
+        "description": {"@id": "schema:description"},
+        "observes": {"@id": "sosa:observes"}
+      }
+    },
+
+    "HistoricalData": {
+      "@id": "sosa:ObservationCollection",
+      "@context": {
+        "path": {"@id": "aspentech:itemPath"},
+        "values": {"@id": "sosa:hasMember", "@container": "@set"},
+        "startTime": {"@id": "time:hasBeginning", "@type": "xsd:dateTime"},
+        "endTime": {"@id": "time:hasEnd", "@type": "xsd:dateTime"}
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/json-schema/aspentech-dataitem-schema.json",
+  "title": "AspenTech Inmation Data Item",
+  "description": "JSON Schema for an AspenTech Inmation process data item (tag) including current value, quality, and historical data.",
+  "type": "object",
+  "required": ["path"],
+  "properties": {
+    "path": {
+      "type": "string",
+      "description": "Full hierarchical path to the data item in the Inmation system tree (e.g., /System/Core/Plant1/Temperature)"
+    },
+    "value": {
+      "description": "Current process value - can be numeric, string, or boolean",
+      "oneOf": [
+        {"type": "number"},
+        {"type": "string"},
+        {"type": "boolean"},
+        {"type": "null"}
+      ]
+    },
+    "quality": {
+      "type": "integer",
+      "description": "OPC UA/DA quality code (192=Good, 0=Bad, 64=Uncertain)",
+      "minimum": 0,
+      "maximum": 255
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the current value (ISO 8601 UTC)"
+    },
+    "engineeringUnit": {
+      "type": "string",
+      "description": "Engineering unit for the value (e.g., degC, bar, m3/h)"
+    },
+    "itemType": {
+      "type": "string",
+      "description": "Type of Inmation item",
+      "enum": ["GenItem", "InmationGenItem", "Model", "Trend", "Calculation", "Connector"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Item display name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Item description"
+    },
+    "highLimit": {
+      "type": "number",
+      "description": "High engineering range limit"
+    },
+    "lowLimit": {
+      "type": "number",
+      "description": "Low engineering range limit"
+    },
+    "alarmHigh": {
+      "type": "number",
+      "description": "High alarm threshold"
+    },
+    "alarmLow": {
+      "type": "number",
+      "description": "Low alarm threshold"
+    },
+    "deadband": {
+      "type": "number",
+      "description": "Deadband for value change detection",
+      "minimum": 0
+    }
+  },
+  "$defs": {
+    "HistoricalValue": {
+      "type": "object",
+      "required": ["value", "timestamp"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {"type": "number"},
+            {"type": "string"},
+            {"type": "boolean"},
+            {"type": "null"}
+          ]
+        },
+        "quality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
