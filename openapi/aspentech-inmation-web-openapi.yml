@@ -26,13 +26,13 @@ security:
 tags:
   - name: Data
     description: Read and write process data points
-  - name: System
-    description: System information and health
-  - name: Items
-    description: Configuration item management
   - name: Historical
     description: Historical time-series data access
 
+  - name: Items
+    description: Configuration item management
+  - name: System
+    description: System information and health
 paths:
   /api:
     post:

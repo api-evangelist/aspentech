@@ -1,18 +1,16 @@
 aid: aspentech
-url: 
-  https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/apis.yml
 apis:
   - aid: aspentech:aspentech-inmation-web-api
     name: AspenTech Inmation Web API
     tags:
-      - Process Optimization
       - Industrial IoT
-      - Time Series
-      - REST
-      - WebSocket
       - Manufacturing
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/image.png
+      - Process Optimization
+      - REST
+      - Time Series
+      - WebSocket
+    image: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/image.png
     humanURL: https://atdocs.inmation.com/api/1.108/webapi/index.html
     baseURL: http://hostname:8002
     properties:
@@ -22,8 +20,7 @@ apis:
         type: Reference
       - url: https://atdocs.inmation.com/home/index.html
         type: Documentation
-      - url: 
-          https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/openapi/aspentech-inmation-web-openapi.yml
+      - url: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/openapi/aspentech-inmation-web-openapi.yml
         type: OpenAPI
     description: >-
       The AspenTech Inmation Web API provides HTTP and WebSocket interfaces for external
@@ -34,13 +31,12 @@ apis:
   - aid: aspentech:aspentech-aspen-one-api
     name: AspenTech Aspen One API
     tags:
-      - Process Optimization
-      - Simulation
       - Energy
       - Manufacturing
       - Process Engineering
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/image.png
+      - Process Optimization
+      - Simulation
+    image: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/image.png
     humanURL: https://www.aspentech.com/
     baseURL: https://api.aspentech.example.com
     properties:
@@ -57,12 +53,11 @@ apis:
   - aid: aspentech:aspentech-inmation-sci-api
     name: AspenTech Inmation Simple Call Interface (SCI) API
     tags:
-      - Process Optimization
       - Industrial IoT
-      - REST
       - Manufacturing
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/image.png
+      - Process Optimization
+      - REST
+    image: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/image.png
     humanURL: https://atdocs.inmation.com/api/1.102/sci/index.html
     baseURL: http://hostname:8002
     properties:
@@ -87,14 +82,11 @@ common:
     type: GettingStarted
   - url: https://esupport.aspentech.com/
     type: Support
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/openapi/aspentech-inmation-web-openapi.yml
+  - url: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/openapi/aspentech-inmation-web-openapi.yml
     type: OpenAPI
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/json-schema/aspentech-dataitem-schema.json
+  - url: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/json-schema/aspentech-dataitem-schema.json
     type: JSONSchema
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/json-ld/aspentech-context.jsonld
+  - url: https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/json-ld/aspentech-context.jsonld
     type: JSONLDContext
 
 maintainers:
