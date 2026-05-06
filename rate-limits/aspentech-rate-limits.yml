@@ -4,7 +4,8 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: AspenTech
 providerId: aspentech
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Industrial IoT
   - Process Optimization
@@ -13,88 +14,33 @@ tags:
   - Chemicals
   - Time Series
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the AspenTech API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: AspenTech APIs (notably Inmation Web API and Simple Call Interface) run on customer-deployed
+  Inmation servers. There are no platform-imposed per-second rate limits; throughput is bounded by the
+  customer's deployment topology, server sizing, and tag/process volume. AspenTech does not publish a
+  public rate-limit table.
+sources:
+  - https://www.aspentech.com/
+  - https://documentation.inmation.com/
+notes: Inmation rate-limits are operator-tunable on the customer's own servers (process engine throttles,
+  WebSocket connection limits). No public canonical rate-limit table.
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - AspenTech Inmation Web API
-      - AspenTech aspenONE API
-      - AspenTech Inmation Simple Call Interface (SCI) API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - AspenTech Inmation Web API
-      - AspenTech aspenONE API
-      - AspenTech Inmation Simple Call Interface (SCI) API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - AspenTech Inmation Web API
-      - AspenTech aspenONE API
-      - AspenTech Inmation Simple Call Interface (SCI) API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - AspenTech Inmation Web API
-      - AspenTech aspenONE API
-      - AspenTech Inmation Simple Call Interface (SCI) API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - AspenTech Inmation Web API
-      - AspenTech aspenONE API
-      - AspenTech Inmation Simple Call Interface (SCI) API
+  - name: Inmation Web API (deployment-bound)
+    scope: server
+    metric: varies
+    limit: bounded by customer Inmation server sizing and configuration
+    notes: Throughput limited by server CPU, tag count, and concurrent WebSocket connections rather
+      than a published per-second cap.
 policies:
+  - name: Operator-Configured
+    description: Limits are tuned by the deploying operator on the Inmation core server; no AspenTech
+      platform-level public throttle is published.
   - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+    description: Clients should implement exponential backoff with jitter on 429 / 503 from the
+      Inmation Web API.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+    url: https://apievangelist.com
