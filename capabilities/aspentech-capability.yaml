@@ -1,0 +1,225 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AspenTech Inmation Web API
+  description: The AspenTech Inmation Web API provides HTTP and WebSocket interfaces for external applications to interact
+    with the AspenTech Inmation industrial IoT and time-series data platform. RPC-based REST APIs enable access to process
+    data, system services, and automation functions for manufacturing and energy operations.
+  tags:
+  - Aspentech
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: aspentech
+    baseUri: http://localhost:8002
+    description: AspenTech Inmation Web API HTTP API.
+    authentication:
+      type: basic
+      username: '{{ASPENTECH_USERNAME}}'
+      password: '{{ASPENTECH_PASSWORD}}'
+    resources:
+    - name: api
+      path: /api
+      operations:
+      - name: executerpccall
+        method: POST
+        description: Execute RPC call
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-data-read
+      path: /api/data/read
+      operations:
+      - name: readdataitems
+        method: POST
+        description: Read current process data values
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-data-write
+      path: /api/data/write
+      operations:
+      - name: writedataitems
+        method: POST
+        description: Write process data values
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-data-readhistory
+      path: /api/data/readhistory
+      operations:
+      - name: readhistoricaldata
+        method: POST
+        description: Read historical time-series data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-sys-info
+      path: /api/sys/info
+      operations:
+      - name: getsysteminfo
+        method: GET
+        description: Get system information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-item-get
+      path: /api/item/get
+      operations:
+      - name: getconfigurationitem
+        method: POST
+        description: Get configuration item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: aspentech-rest
+    description: REST adapter for AspenTech Inmation Web API.
+    resources:
+    - path: /api
+      name: executerpccall
+      operations:
+      - method: POST
+        name: executerpccall
+        description: Execute RPC call
+        call: aspentech.executerpccall
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/data/read
+      name: readdataitems
+      operations:
+      - method: POST
+        name: readdataitems
+        description: Read current process data values
+        call: aspentech.readdataitems
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/data/write
+      name: writedataitems
+      operations:
+      - method: POST
+        name: writedataitems
+        description: Write process data values
+        call: aspentech.writedataitems
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/data/readhistory
+      name: readhistoricaldata
+      operations:
+      - method: POST
+        name: readhistoricaldata
+        description: Read historical time-series data
+        call: aspentech.readhistoricaldata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/sys/info
+      name: getsysteminfo
+      operations:
+      - method: GET
+        name: getsysteminfo
+        description: Get system information
+        call: aspentech.getsysteminfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/item/get
+      name: getconfigurationitem
+      operations:
+      - method: POST
+        name: getconfigurationitem
+        description: Get configuration item
+        call: aspentech.getconfigurationitem
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: aspentech-mcp
+    transport: http
+    description: MCP adapter for AspenTech Inmation Web API for AI agent use.
+    tools:
+    - name: executerpccall
+      description: Execute RPC call
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aspentech.executerpccall
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: readdataitems
+      description: Read current process data values
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aspentech.readdataitems
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: writedataitems
+      description: Write process data values
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aspentech.writedataitems
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: readhistoricaldata
+      description: Read historical time-series data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aspentech.readhistoricaldata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsysteminfo
+      description: Get system information
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: aspentech.getsysteminfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getconfigurationitem
+      description: Get configuration item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aspentech.getconfigurationitem
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    ASPENTECH_USERNAME: ASPENTECH_USERNAME
+    ASPENTECH_PASSWORD: ASPENTECH_PASSWORD
