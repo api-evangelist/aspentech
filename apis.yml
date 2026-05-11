@@ -167,6 +167,12 @@ common:
         description: >-
           Integration with AVEVA engineering and operations management platforms
           for plant lifecycle data management.
+  - type: Integrations
+    url: https://www.aspentech.com/en/partners
+integrations:
+  - name: Partner Network
+  - name: AWS Solution for AIoT
+  - name: Webinar Streamline Data Microsoft
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
