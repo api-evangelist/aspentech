@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AspenTech Inmation Web API — Historical
+  description: 'AspenTech Inmation Web API — Historical. 1 operations. Lead operation: Read historical time-series data. Self-contained
+    Naftiko capability covering one Aspentech business surface.'
+  tags:
+  - Aspentech
+  - Historical
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ASPENTECH_API_KEY: ASPENTECH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: inmation-web-historical
+    baseUri: http://{hostname}:8002
+    description: AspenTech Inmation Web API — Historical business capability. Self-contained, no shared references.
+    resources:
+    - name: api-data-readhistory
+      path: /api/data/readhistory
+      operations:
+      - name: readhistoricaldata
+        method: POST
+        description: Read historical time-series data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ASPENTECH_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: inmation-web-historical-rest
+    port: 8080
+    description: REST adapter for AspenTech Inmation Web API — Historical. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/data/readhistory
+      name: api-data-readhistory
+      description: REST surface for api-data-readhistory.
+      operations:
+      - method: POST
+        name: readhistoricaldata
+        description: Read historical time-series data
+        call: inmation-web-historical.readhistoricaldata
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: inmation-web-historical-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for AspenTech Inmation Web API — Historical. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: read-historical-time-series-data
+      description: Read historical time-series data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inmation-web-historical.readhistoricaldata
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
