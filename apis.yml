@@ -79,6 +79,10 @@ apis:
       - type: Documentation
         url: https://atdocs.inmation.com/api/1.102/sci/index.html
 common:
+  - type: DomainSecurity
+    url: security/aspentech-domain-security.yml
+  - type: Authentication
+    url: authentication/aspentech-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/aspen-technology
   - type: Portal
