@@ -1,0 +1,64 @@
+openapi: 3.1.0
+info:
+  title: AspenTech Inmation Web Data System API
+  description: The AspenTech Inmation Web API provides HTTP and WebSocket interfaces for external applications to interact with the AspenTech Inmation industrial IoT and time-series data platform. RPC-based REST APIs enable access to process data, system services, and automation functions for manufacturing and energy operations.
+  version: 1.108.0
+  contact:
+    name: AspenTech Support
+    url: https://atdocs.inmation.com/api/1.108/webapi/index.html
+servers:
+- url: http://{hostname}:8002
+  description: Inmation Web API server
+  variables:
+    hostname:
+      default: localhost
+      description: Inmation server hostname or IP address
+security:
+- basicAuth: []
+- bearerToken: []
+tags:
+- name: System
+  description: System information and health
+paths:
+  /api/sys/info:
+    get:
+      operationId: getSystemInfo
+      summary: Get system information
+      description: Retrieve Inmation system information including version, license, and server status.
+      tags:
+      - System
+      responses:
+        '200':
+          description: System information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemInfo'
+components:
+  schemas:
+    SystemInfo:
+      type: object
+      properties:
+        version:
+          type: string
+        serverName:
+          type: string
+        serverTime:
+          type: string
+          format: date-time
+        licenseStatus:
+          type: string
+          enum:
+          - Valid
+          - Expired
+          - Trial
+        uptime:
+          type: integer
+          description: Server uptime in seconds
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerToken:
+      type: http
+      scheme: bearer

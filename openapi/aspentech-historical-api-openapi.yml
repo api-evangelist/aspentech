@@ -1,0 +1,103 @@
+openapi: 3.1.0
+info:
+  title: AspenTech Inmation Web Data Historical API
+  description: The AspenTech Inmation Web API provides HTTP and WebSocket interfaces for external applications to interact with the AspenTech Inmation industrial IoT and time-series data platform. RPC-based REST APIs enable access to process data, system services, and automation functions for manufacturing and energy operations.
+  version: 1.108.0
+  contact:
+    name: AspenTech Support
+    url: https://atdocs.inmation.com/api/1.108/webapi/index.html
+servers:
+- url: http://{hostname}:8002
+  description: Inmation Web API server
+  variables:
+    hostname:
+      default: localhost
+      description: Inmation server hostname or IP address
+security:
+- basicAuth: []
+- bearerToken: []
+tags:
+- name: Historical
+  description: Historical time-series data access
+paths:
+  /api/data/readhistory:
+    post:
+      operationId: readHistoricalData
+      summary: Read historical time-series data
+      description: Retrieve historical time-series data for one or more process items within a specified time range. Supports raw, interpolated, and aggregated retrieval modes.
+      tags:
+      - Historical
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - paths
+              - startTime
+              - endTime
+              properties:
+                paths:
+                  type: array
+                  items:
+                    type: string
+                startTime:
+                  type: string
+                  format: date-time
+                  description: Start of historical range (ISO 8601)
+                endTime:
+                  type: string
+                  format: date-time
+                  description: End of historical range (ISO 8601)
+                retrievalMode:
+                  type: string
+                  enum:
+                  - Raw
+                  - Interpolated
+                  - Average
+                  - Minimum
+                  - Maximum
+                  - Count
+                  default: Raw
+                numberOfIntervals:
+                  type: integer
+                  description: Number of intervals for aggregated retrieval
+      responses:
+        '200':
+          description: Historical data values
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/HistoricalDataResult'
+components:
+  schemas:
+    HistoricalDataResult:
+      type: object
+      properties:
+        path:
+          type: string
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                description: Historical value
+              quality:
+                type: integer
+              timestamp:
+                type: string
+                format: date-time
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerToken:
+      type: http
+      scheme: bearer

@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: AspenTech Inmation Web Data Items API
+  description: The AspenTech Inmation Web API provides HTTP and WebSocket interfaces for external applications to interact with the AspenTech Inmation industrial IoT and time-series data platform. RPC-based REST APIs enable access to process data, system services, and automation functions for manufacturing and energy operations.
+  version: 1.108.0
+  contact:
+    name: AspenTech Support
+    url: https://atdocs.inmation.com/api/1.108/webapi/index.html
+servers:
+- url: http://{hostname}:8002
+  description: Inmation Web API server
+  variables:
+    hostname:
+      default: localhost
+      description: Inmation server hostname or IP address
+security:
+- basicAuth: []
+- bearerToken: []
+tags:
+- name: Items
+  description: Configuration item management
+paths:
+  /api/item/get:
+    post:
+      operationId: getConfigurationItem
+      summary: Get configuration item
+      description: Retrieve configuration and properties for an Inmation system item by path.
+      tags:
+      - Items
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - path
+              properties:
+                path:
+                  type: string
+                  description: Full path to the item (e.g., /System/Core/MyFolder/MyItem)
+      responses:
+        '200':
+          description: Item configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigurationItem'
+components:
+  schemas:
+    ConfigurationItem:
+      type: object
+      properties:
+        path:
+          type: string
+        itemType:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        properties:
+          type: object
+          additionalProperties: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerToken:
+      type: http
+      scheme: bearer
