@@ -1,0 +1,20 @@
+{
+  "provider": "aspentech",
+  "sources": [
+    "aspentech-data-api-openapi.yml",
+    "aspentech-historical-api-openapi.yml",
+    "aspentech-items-api-openapi.yml",
+    "aspentech-system-api-openapi.yml"
+  ],
+  "outputs": [
+    "aspentech-data-api-openapi.yml",
+    "aspentech-historical-api-openapi.yml",
+    "aspentech-items-api-openapi.yml",
+    "aspentech-system-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
