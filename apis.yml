@@ -150,7 +150,7 @@ common:
     url: https://esupport.aspentech.com/
     title: Technical Support
   - type: OpenAPI
-    url: openapi/aspentech-inmation-web-openapi.yml
+    url: openapi/_original/aspentech-inmation-web-openapi.yml
     title: Inmation Web API OpenAPI
   - type: JSONSchema
     url: json-schema/aspentech-dataitem-schema.json
