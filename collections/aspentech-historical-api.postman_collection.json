@@ -1,0 +1,171 @@
+{
+  "item": [
+    {
+      "id": "39ba3b1b-9e0a-4a1c-b27f-95a595e82b3f",
+      "name": "Historical",
+      "description": {
+        "content": "Historical time-series data access",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8f7da01-006f-4b70-bd77-b66d8b9187ab",
+          "name": "Read historical time-series data",
+          "request": {
+            "name": "Read historical time-series data",
+            "description": {
+              "content": "Retrieve historical time-series data for one or more process items within a specified time range. Supports raw, interpolated, and aggregated retrieval modes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "data",
+                "readhistory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Inmation server hostname or IP address",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paths\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"retrievalMode\": \"Raw\",\n  \"numberOfIntervals\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6991175-cfcf-4338-9456-cb0327ca0853",
+              "name": "Historical data values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "data",
+                    "readhistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Inmation server hostname or IP address",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"paths\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"retrievalMode\": \"Raw\",\n  \"numberOfIntervals\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"path\": \"string\",\n      \"values\": [\n        {\n          \"value\": {},\n          \"quality\": 5658,\n          \"timestamp\": \"1957-12-21T07:48:40.778Z\"\n        },\n        {\n          \"value\": {},\n          \"quality\": 9525,\n          \"timestamp\": \"1961-04-06T03:31:48.271Z\"\n        }\n      ]\n    },\n    {\n      \"path\": \"string\",\n      \"values\": [\n        {\n          \"value\": {},\n          \"quality\": 3103,\n          \"timestamp\": \"1990-03-04T23:03:58.378Z\"\n        },\n        {\n          \"value\": {},\n          \"quality\": 1399,\n          \"timestamp\": \"2008-03-22T03:02:50.471Z\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Inmation server hostname or IP address",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "hostname"
+    },
+    {
+      "type": "string",
+      "value": "http://{{hostname}}:8002",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "afe9f22b-0088-442d-b778-dc2bdfcd35ec",
+    "name": "AspenTech Inmation Web Data Historical API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The AspenTech Inmation Web API provides HTTP and WebSocket interfaces for external applications to interact with the AspenTech Inmation industrial IoT and time-series data platform. RPC-based REST APIs enable access to process data, system services, and automation functions for manufacturing and energy operations.\n\nContact Support:\n Name: AspenTech Support",
+      "type": "text/plain"
+    }
+  }
+}

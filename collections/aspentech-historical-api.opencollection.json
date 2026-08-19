@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AspenTech Inmation Web Data Historical API",
+    "version": "1.108.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Historical",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read historical time-series data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{hostname}:8002/api/data/readhistory",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve historical time-series data for one or more process items within a specified time range. Supports raw, interpolated, and aggregated retrieval modes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "be0c2c32-4e58-4838-9fc4-1b8144c0f711",
+      "name": "System",
+      "description": {
+        "content": "System information and health",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4ddcdb27-e857-4b6b-8452-7203b6ab5e76",
+          "name": "Get system information",
+          "request": {
+            "name": "Get system information",
+            "description": {
+              "content": "Retrieve Inmation system information including version, license, and server status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sys",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Inmation server hostname or IP address",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3d76760-3735-4358-bdf9-4baacd7a6d65",
+              "name": "System information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sys",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Inmation server hostname or IP address",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"serverName\": \"string\",\n  \"serverTime\": \"2006-11-27T04:24:35.135Z\",\n  \"licenseStatus\": \"Expired\",\n  \"uptime\": 4279\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Inmation server hostname or IP address",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "hostname"
+    },
+    {
+      "type": "string",
+      "value": "http://{{hostname}}:8002",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6309bf8b-664a-456e-96c6-9dd94112e24a",
+    "name": "AspenTech Inmation Web Data System API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The AspenTech Inmation Web API provides HTTP and WebSocket interfaces for external applications to interact with the AspenTech Inmation industrial IoT and time-series data platform. RPC-based REST APIs enable access to process data, system services, and automation functions for manufacturing and energy operations.\n\nContact Support:\n Name: AspenTech Support",
+      "type": "text/plain"
+    }
+  }
+}

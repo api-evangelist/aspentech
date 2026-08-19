@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AspenTech Inmation Web Data Items API",
+    "version": "1.108.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get configuration item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{hostname}:8002/api/item/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve configuration and properties for an Inmation system item by path."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

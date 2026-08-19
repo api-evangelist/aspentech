@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AspenTech Inmation Web Data API",
+    "version": "1.108.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute RPC call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{hostname}:8002/api",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute an Inmation RPC (Remote Procedure Call) operation. The Inmation Web API uses a unified POST endpoint with JSON-RPC-style requests to perform data reads, writes, and system operations."
+        },
+        {
+          "info": {
+            "name": "Read current process data values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{hostname}:8002/api/data/read",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read the current value of one or more process data items (tags) by path."
+        },
+        {
+          "info": {
+            "name": "Write process data values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{hostname}:8002/api/data/write",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Write values to one or more process data items (tags) by path."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

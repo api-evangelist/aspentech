@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AspenTech Inmation Web Data System API",
+    "version": "1.108.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "System",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get system information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{hostname}:8002/api/sys/info"
+          },
+          "docs": "Retrieve Inmation system information including version, license, and server status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
