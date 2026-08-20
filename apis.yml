@@ -103,6 +103,8 @@ apis:
   humanURL: https://atdocs.inmation.com/api/1.108/webapi/index.html
   baseURL: http://hostname:8002
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
