@@ -140,6 +140,8 @@ apis:
   - type: JSONSchema
     url: json-schema/aspentech-dataitem-schema.json
 common:
+  - type: Website
+    url: https://www.aspentech.com/
   - type: AgenticAccess
     url: agentic-access/aspentech-agentic-access.yml
   - type: DomainSecurity
