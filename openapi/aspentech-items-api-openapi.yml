@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: AspenTech Inmation Web Data Items API
+  title: AspenTech Inmation Web Items API
   description: The AspenTech Inmation Web API provides HTTP and WebSocket interfaces for external applications to interact with the AspenTech Inmation industrial IoT and time-series data platform. RPC-based REST APIs enable access to process data, system services, and automation functions for manufacturing and energy operations.
   version: 1.108.0
   contact:
