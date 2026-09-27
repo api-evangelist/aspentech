@@ -47,7 +47,7 @@ modified: '2026-05-19'
 specificationVersion: '0.23'
 apis:
 - aid: aspentech:aspenone-api
-  name: AspenTech aspenONE API
+  name: AspenTech Aspen ONE API
   description: >-
     AspenTech provides process optimization and simulation software for energy, chemicals, and manufacturing
     industries. The aspenONE platform APIs enable access to process simulation models, performance monitoring,

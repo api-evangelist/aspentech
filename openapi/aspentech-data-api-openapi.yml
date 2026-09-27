@@ -138,40 +138,6 @@ paths:
                       $ref: '#/components/schemas/WriteResult'
 components:
   schemas:
-    WriteResult:
-      type: object
-      properties:
-        path:
-          type: string
-        success:
-          type: boolean
-        error:
-          type: string
-    RpcErrorResponse:
-      type: object
-      properties:
-        jsonrpc:
-          type: string
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
-            data:
-              type: object
-        id:
-          oneOf:
-          - type: integer
-          - type: string
-    Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
     DataItem:
       type: object
       description: Current value of a process data item
@@ -191,27 +157,6 @@ components:
         error:
           type: string
           description: Error message if item could not be read
-    RpcRequest:
-      type: object
-      required:
-      - jsonrpc
-      - method
-      - id
-      properties:
-        jsonrpc:
-          type: string
-          enum:
-          - '2.0'
-        method:
-          type: string
-          description: RPC method name (e.g., data.read, data.write, sys.info)
-        params:
-          type: object
-          additionalProperties: true
-        id:
-          oneOf:
-          - type: integer
-          - type: string
     DataWriteRequest:
       type: object
       required:
@@ -232,6 +177,61 @@ components:
           type: string
         result:
           description: Response result (type varies by method)
+        id:
+          oneOf:
+          - type: integer
+          - type: string
+    WriteResult:
+      type: object
+      properties:
+        path:
+          type: string
+        success:
+          type: boolean
+        error:
+          type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+    RpcErrorResponse:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+            data:
+              type: object
+        id:
+          oneOf:
+          - type: integer
+          - type: string
+    RpcRequest:
+      type: object
+      required:
+      - jsonrpc
+      - method
+      - id
+      properties:
+        jsonrpc:
+          type: string
+          enum:
+          - '2.0'
+        method:
+          type: string
+          description: RPC method name (e.g., data.read, data.write, sys.info)
+        params:
+          type: object
+          additionalProperties: true
         id:
           oneOf:
           - type: integer
