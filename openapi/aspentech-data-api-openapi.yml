@@ -138,19 +138,6 @@ paths:
                       $ref: '#/components/schemas/WriteResult'
 components:
   schemas:
-    DataWriteRequest:
-      type: object
-      required:
-      - path
-      - value
-      properties:
-        path:
-          type: string
-        value:
-          description: Value to write (numeric, string, or boolean)
-        timestamp:
-          type: string
-          format: date-time
     RpcErrorResponse:
       type: object
       properties:
@@ -169,15 +156,6 @@ components:
           oneOf:
           - type: integer
           - type: string
-    WriteResult:
-      type: object
-      properties:
-        path:
-          type: string
-        success:
-          type: boolean
-        error:
-          type: string
     Error:
       type: object
       properties:
@@ -185,6 +163,49 @@ components:
           type: integer
         message:
           type: string
+    DataItem:
+      type: object
+      description: Current value of a process data item
+      properties:
+        path:
+          type: string
+          description: Full item path
+        value:
+          description: Current process value (numeric, string, or boolean)
+        quality:
+          type: integer
+          description: OPC quality code (192 = Good, 0 = Bad)
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp of the current value
+        error:
+          type: string
+          description: Error message if item could not be read
+    DataWriteRequest:
+      type: object
+      required:
+      - path
+      - value
+      properties:
+        path:
+          type: string
+        value:
+          description: Value to write (numeric, string, or boolean)
+        timestamp:
+          type: string
+          format: date-time
+    RpcResponse:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+        result:
+          description: Response result (type varies by method)
+        id:
+          oneOf:
+          - type: integer
+          - type: string
     RpcRequest:
       type: object
       required:
@@ -206,36 +227,15 @@ components:
           oneOf:
           - type: integer
           - type: string
-    RpcResponse:
+    WriteResult:
       type: object
-      properties:
-        jsonrpc:
-          type: string
-        result:
-          description: Response result (type varies by method)
-        id:
-          oneOf:
-          - type: integer
-          - type: string
-    DataItem:
-      type: object
-      description: Current value of a process data item
       properties:
         path:
           type: string
-          description: Full item path
-        value:
-          description: Current process value (numeric, string, or boolean)
-        quality:
-          type: integer
-          description: OPC quality code (192 = Good, 0 = Bad)
-        timestamp:
-          type: string
-          format: date-time
-          description: Timestamp of the current value
+        success:
+          type: boolean
         error:
           type: string
-          description: Error message if item could not be read
   responses:
     Unauthorized:
       description: Unauthorized - invalid credentials
