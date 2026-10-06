@@ -43,7 +43,7 @@ tags:
   - Chemicals
   - Time Series
 created: '2024-01-15'
-modified: '2026-05-19'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: aspentech:aspenone-api
@@ -140,6 +140,8 @@ apis:
   - type: JSONSchema
     url: json-schema/aspentech-dataitem-schema.json
 common:
+  - url: https://www.aspentech.com/en/newsroom
+    type: Blog
   - type: Website
     url: https://www.aspentech.com/
   - type: AgenticAccess
