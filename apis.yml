@@ -140,6 +140,12 @@ apis:
   - type: JSONSchema
     url: json-schema/aspentech-dataitem-schema.json
 common:
+  - type: Plans
+    url: plans/aspentech-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/aspentech-rate-limits.yml
+  - type: FinOps
+    url: finops/aspentech-finops.yml
   - url: https://www.aspentech.com/en/newsroom
     type: Blog
   - type: Website
