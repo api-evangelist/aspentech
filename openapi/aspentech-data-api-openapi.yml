@@ -137,51 +137,14 @@ paths:
                     items:
                       $ref: '#/components/schemas/WriteResult'
 components:
+  responses:
+    Unauthorized:
+      description: Unauthorized - invalid credentials
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    RpcErrorResponse:
-      type: object
-      properties:
-        jsonrpc:
-          type: string
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
-            data:
-              type: object
-        id:
-          oneOf:
-          - type: integer
-          - type: string
-    Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-    DataItem:
-      type: object
-      description: Current value of a process data item
-      properties:
-        path:
-          type: string
-          description: Full item path
-        value:
-          description: Current process value (numeric, string, or boolean)
-        quality:
-          type: integer
-          description: OPC quality code (192 = Good, 0 = Bad)
-        timestamp:
-          type: string
-          format: date-time
-          description: Timestamp of the current value
-        error:
-          type: string
-          description: Error message if item could not be read
     DataWriteRequest:
       type: object
       required:
@@ -195,17 +158,6 @@ components:
         timestamp:
           type: string
           format: date-time
-    RpcResponse:
-      type: object
-      properties:
-        jsonrpc:
-          type: string
-        result:
-          description: Response result (type varies by method)
-        id:
-          oneOf:
-          - type: integer
-          - type: string
     RpcRequest:
       type: object
       required:
@@ -227,6 +179,32 @@ components:
           oneOf:
           - type: integer
           - type: string
+    DataItem:
+      type: object
+      description: Current value of a process data item
+      properties:
+        path:
+          type: string
+          description: Full item path
+        value:
+          description: Current process value (numeric, string, or boolean)
+        quality:
+          type: integer
+          description: OPC quality code (192 = Good, 0 = Bad)
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp of the current value
+        error:
+          type: string
+          description: Error message if item could not be read
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
     WriteResult:
       type: object
       properties:
@@ -236,13 +214,35 @@ components:
           type: boolean
         error:
           type: string
-  responses:
-    Unauthorized:
-      description: Unauthorized - invalid credentials
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    RpcErrorResponse:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+            data:
+              type: object
+        id:
+          oneOf:
+          - type: integer
+          - type: string
+    RpcResponse:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+        result:
+          description: Response result (type varies by method)
+        id:
+          oneOf:
+          - type: integer
+          - type: string
   securitySchemes:
     basicAuth:
       type: http
