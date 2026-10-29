@@ -1,4 +1,4 @@
-# AspenTech (aspentech)
+# AspenTech
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,111 +66,143 @@
 
 AspenTech (Aspen Technology, Inc.) is a global leader in industrial software for asset optimization across the energy, chemicals, and manufacturing industries. AspenTech provides process simulation, optimization, and industrial IoT platforms including the aspenONE suite and Inmation industrial data platform. The Inmation platform provides Web API and Simple Call Interface (SCI) APIs for external applications to interact with industrial IoT and time-series process data via HTTP and WebSocket interfaces. AspenTech serves refineries, petrochemical plants, power generation facilities, and other industrial operations worldwide.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/aspentech/refs/heads/main/apis.yml)
+**Areas:** Industrial IoT · Process Optimization · Manufacturing · Energy · Chemicals · Time Series
 
-## Scope
+## AspenTech on APIs.io
 
-- **Type:** Index
+Everything profiled for AspenTech is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/aspentech/](https://apis.io/providers/aspentech/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Industrial IoT
-- Process Optimization
-- Manufacturing
-- Energy
-- Chemicals
-- Time Series
+- [AspenTech Aspen ONE API](https://apis.io/apis/aspentech/aspenone-api/) — AspenTech provides process optimization and simulation software for energy, chemicals, and manufacturing industries. The aspenONE platform APIs enable…
+- [AspenTech Inmation Simple Call Interface (SCI) API](https://apis.io/apis/aspentech/inmation-sci-api/) — The AspenTech Inmation Simple Call Interface (SCI) API provides a simplified HTTP interface for communicating with the Inmation industrial data platform.…
+- [AspenTech Data API](https://apis.io/apis/aspentech/aspentech-data-api/) — Read and write process data points
+- [AspenTech Historical API](https://apis.io/apis/aspentech/aspentech-historical-api/) — Historical time-series data access
+- [AspenTech Items API](https://apis.io/apis/aspentech/aspentech-items-api/) — Configuration item management
+- [AspenTech System API](https://apis.io/apis/aspentech/aspentech-system-api/) — System information and health
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### AspenTech Inmation Web API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The AspenTech Inmation Web API provides HTTP and WebSocket interfaces for external applications to interact with AspenTech Inmation industrial IoT and time-series data platforms. RPC-based REST APIs enable access to process data, system services, and automation functions for manufacturing and energy operations.
+- [Aspentech Agentic Access](https://apis.io/agentic-access/aspentech/aspentech-agentic-access/)
 
-- **Human URL:** [https://atdocs.inmation.com/api/1.108/webapi/index.html](https://atdocs.inmation.com/api/1.108/webapi/index.html)
-- **Base URL:** `http://hostname:8002`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Industrial IoT
-- Manufacturing
-- Process Optimization
-- REST
-- Time Series
-- WebSocket
+- [AspenTech Inmation Data Item](https://apis.io/schemas/aspentech/aspentech-dataitem/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://atdocs.inmation.com/api/1.108/webapi/index.html)
-- [OpenAPI](openapi/aspentech-inmation-web-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/aspentech-inmation-web.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/aspentech-inmation-web.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/aspentech-dataitem-schema.json) — [JSON Schema](https://json-schema.org/specification)
+Linked-data contexts for the provider's vocabulary.
 
-### AspenTech aspenONE API
+- [Aspentech Context](https://apis.io/jsonld/aspentech/aspentech-context/)
 
-AspenTech provides process optimization and simulation software for energy, chemicals, and manufacturing industries. The aspenONE platform APIs enable access to process simulation models, performance monitoring, and optimization data for AI-driven operational workflows.
+#### Collections (5)
 
-- **Human URL:** [https://www.aspentech.com/](https://www.aspentech.com/)
-- **Base URL:** `https://api.aspentech.com`
+Postman and Open Collection request collections.
 
-#### Tags
+- [AspenTech Inmation Web Data API](https://apis.io/collections/aspentech/open-aspentech-data-api/)
+- [AspenTech Inmation Web Data Historical API](https://apis.io/collections/aspentech/open-aspentech-historical-api/)
+- [AspenTech Inmation Web API](https://apis.io/collections/aspentech/open-aspentech-inmation-web/)
+- [AspenTech Inmation Web Data Items API](https://apis.io/collections/aspentech/open-aspentech-items-api/)
+- [AspenTech Inmation Web Data System API](https://apis.io/collections/aspentech/open-aspentech-system-api/)
 
-- Energy
-- Manufacturing
-- Process Engineering
-- Process Optimization
-- Simulation
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Getting Started](https://www.aspentech.com/en/getting-started-guides)
+- [AspenTech — jsonschema rules](https://apis.io/rules/aspentech/aspentech-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Aspentech Authentication](https://apis.io/security/aspentech/aspentech-authentication/)
+- [Aspentech Domain Security](https://apis.io/security/aspentech/aspentech-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Aspentech Plans Pricing](https://apis.io/plans/aspentech/aspentech-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Aspentech Rate Limits](https://apis.io/rate-limits/aspentech/aspentech-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Aspentech Finops](https://apis.io/finops/aspentech/aspentech-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.aspentech.com/)
 - [Documentation](https://dev.knowledgecenter.aspentech.com/)
-- [Postman Collection](collections/aspentech-inmation-web.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/aspentech-inmation-web.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### AspenTech Inmation Simple Call Interface (SCI) API
-
-The AspenTech Inmation Simple Call Interface (SCI) API provides a simplified HTTP interface for communicating with the Inmation industrial data platform. Designed for straightforward read/write access to process data and configuration items in manufacturing and energy environments.
-
-- **Human URL:** [https://atdocs.inmation.com/api/1.102/sci/index.html](https://atdocs.inmation.com/api/1.102/sci/index.html)
-- **Base URL:** `http://hostname:8002`
-
-#### Tags
-
-- Industrial IoT
-- Manufacturing
-- Process Optimization
-- REST
-
-#### Properties
-
-- [Documentation](https://atdocs.inmation.com/api/1.102/sci/index.html)
-- [Postman Collection](collections/aspentech-inmation-web.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/aspentech-inmation-web.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/aspen-technology)
-- [Portal](https://www.aspentech.com/)
-- [Portal](https://dev.knowledgecenter.aspentech.com/)
-- [Documentation](https://dev.knowledgecenter.aspentech.com/)
-- [Getting Started](https://www.aspentech.com/en/getting-started-guides)
+- [Getting started](https://www.aspentech.com/en/getting-started-guides)
 - [Support](https://esupport.aspentech.com/)
-- [OpenAPI](openapi/aspentech-inmation-web-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](json-schema/aspentech-dataitem-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/aspentech-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Integrations](https://www.aspentech.com/en/partners)
+- [Blog](https://www.aspentech.com/en/newsroom)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 31.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 53.9 |
+| Contract governance | 9.8 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 5.3 |
+
+**Agent readiness 20.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.9** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aspentech/](https://apis.io/providers/aspentech/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for AspenTech: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/aspentech/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
