@@ -1,0 +1,78 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: AspenTech
+providerId: aspentech
+created: '2026-05-04'
+# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
+# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
+method: generated
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - Industrial IoT
+  - Process Optimization
+  - Manufacturing
+  - Energy
+  - Chemicals
+  - Time Series
+description: AspenTech (Aspen Technology, Inc.) sells enterprise industrial software (aspenONE process
+  optimization suite, AIoT Hub, Inmation industrial data platform). Pricing is quote-based via direct
+  sales and partners; AspenTech does not publish per-API or per-seat list pricing on its website.
+sources:
+  - https://www.aspentech.com/en/products
+notes: No public price list. Inmation and aspenONE are sold under enterprise licenses; APIs (Web API,
+  Simple Call Interface) are bundled with the platform license, not metered separately.
+plans:
+  - id: aspentech-enterprise
+    name: Enterprise License
+    type: enterprise
+    description: AspenTech is sold as enterprise software with bundled APIs. Pricing depends on the
+      product (aspenONE, Inmation, AIoT Hub), site count, server capacity, and tag/process counts.
+    entries:
+      - label: Platform License
+        name: platform_license
+        type: subscription
+        metric: varies
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom (contact AspenTech sales)
+        userMultiplied: false
+      - label: API Access (Inmation Web API / SCI)
+        name: api_access
+        type: subscription
+        metric: varies
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: included with platform license
+        userMultiplied: false
+    elements:
+      - name: aspenONE Engineering Suite
+      - name: aspenONE APM
+      - name: AIoT Hub
+      - name: Inmation Web API
+      - name: Inmation Simple Call Interface (SCI)
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - negotiated
+  plans:
+  - name: Enterprise License
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year
